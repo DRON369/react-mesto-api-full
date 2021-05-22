@@ -1,0 +1,16 @@
+.popup__label {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  color: #000000;
+  margin: 0 0 42px 0;
+}
+
+@media screen and (max-width: 540px) {
+  .popup__label {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 0 68px 0;
+  }
+}

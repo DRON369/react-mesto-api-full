@@ -1,0 +1,15 @@
+.cards__like-button {
+  background: url('../../../images/like-button.svg');
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+  height: 18.13px;
+  width: 20.75px;
+  outline: none;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.cards__like-button:hover {
+  cursor: pointer;
+  opacity: 60%;
+}

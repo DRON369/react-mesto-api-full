@@ -1,0 +1,12 @@
+.popup__container_type_image {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  position: relative;
+  width: 100%;
+  height: max-content;
+  max-width:max-content;
+  background: none;
+  padding: 0;
+  box-sizing: inherit;
+}
