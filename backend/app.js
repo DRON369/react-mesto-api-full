@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const helmet = require('helmet'); // Защита приложения от web-уязвимостей путём настройки заголовков http
 const { connect } = require('mongoose');
@@ -18,6 +20,13 @@ app.use(helmet()); // Защита приложения от web-уязвимо�
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(requestLogger);
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.post('/signin',
   celebrate({
     body: Joi.object().keys({
@@ -42,7 +51,6 @@ connect('mongodb://localhost:27017/mestodb', {
   useCreateIndex: true,
   useFindAndModify: false,
 });
-
 app.use('/users', auth, require('./routes/users'));
 app.use('/cards', auth, require('./routes/cards'));
 
