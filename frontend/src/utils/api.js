@@ -91,7 +91,7 @@ class Api {
 }
 
 const api = new Api({
-  address: "http://localhost:3000",
+  address: "https://api.mesto369.nomoredomains.monster",
 });
 
 export default api;
