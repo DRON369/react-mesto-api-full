@@ -2,16 +2,18 @@ const jwt = require('jsonwebtoken');
 const UnathorizedError = require('../errors/unauthorized-error');
 
 module.exports = (req, res, next) => {
-  const authorization = req.headers;
-  if (!authorization || !authorization.cookie) {
+  const { authorization } = req.headers;
+  if (!authorization || !authorization.startsWith('Bearer ')) {
     const error = new UnathorizedError('Необходима авторизация');
     return next(error);
   }
 
-  const token = authorization.cookie.replace('jwt=', '');
+  const token = authorization.replace('Bearer ', '');
   let payload;
+
   try {
     payload = jwt.verify(token, 'some-secret-key');
+    // payload = jwt.verify(token, 'some-secret-key');
   } catch (err) {
     if (!payload) {
       const error = new UnathorizedError('Необходима авторизация');
@@ -20,6 +22,29 @@ module.exports = (req, res, next) => {
     return next(err);
   }
 
-  req.user = payload; // записываем пейлоуд в объект запроса
+  req.user = payload;
+
   return next();
+
+  //! True cookie auth, for best times...
+  // const authorization = req.headers;
+  // if (!authorization || !authorization.cookie) {
+  //   const error = new UnathorizedError('Необходима авторизация');
+  //   return next(error);
+  // }
+
+  // const token = authorization.cookie.replace('jwt=', '');
+  // let payload;
+  // try {
+  //   payload = jwt.verify(token, 'some-secret-key');
+  // } catch (err) {
+  //   if (!payload) {
+  //     const error = new UnathorizedError('Необходима авторизация');
+  //     return next(error);
+  //   }
+  //   return next(err);
+  // }
+
+  // req.user = payload; // записываем пейлоуд в объект запроса
+  // return next();
 };

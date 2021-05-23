@@ -14,7 +14,6 @@ router.patch('/me', celebrate({
   params: Joi.object().keys({
     name: Joi.string(),
     about: Joi.string(),
-    avatar: Joi.string(),
   }),
 }), updateUser);
 

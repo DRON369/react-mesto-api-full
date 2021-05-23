@@ -1,9 +1,7 @@
 class Api {
-  constructor({ address, token, groupId }) {
+  constructor({ address }) {
     this._address = address;
-    this._token = token;
-    this._groupId = groupId;
-  }
+ }
 
   _checkResponse(res) {
     if (res.ok) {
@@ -14,18 +12,18 @@ class Api {
   }
 
   getUserInfo() {
-    return fetch(`${this._address}/${this._groupId}/users/me`, {
+    return fetch(`${this._address}/users/me`, {
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
     }).then(this._checkResponse);
   }
 
   setUserInfo({ name, about }) {
-    return fetch(`${this._address}/${this._groupId}/users/me`, {
+    return fetch(`${this._address}/users/me`, {
       method: "PATCH",
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -36,18 +34,18 @@ class Api {
   }
 
   getCards() {
-    return fetch(`${this._address}/${this._groupId}/cards`, {
+    return fetch(`${this._address}/cards`, {
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
     }).then(this._checkResponse);
   }
 
   createCard({ name, link }) {
-    return fetch(`${this._address}/${this._groupId}/cards`, {
+    return fetch(`${this._address}/cards`, {
       method: "POST",
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -58,10 +56,10 @@ class Api {
   }
 
   deleteCard(cardId) {
-    return fetch(`${this._address}/${this._groupId}/cards/${cardId}`, {
+    return fetch(`${this._address}/cards/${cardId}`, {
       method: "DELETE",
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
     }).then((res) =>
       res.ok ? cardId : Promise.reject(`Ошибка ${res.status}`)
@@ -70,19 +68,19 @@ class Api {
 
   likeCard(cardId, like) {
     this._like = like ? "PUT" : "DELETE";
-    return fetch(`${this._address}/${this._groupId}/cards/likes/${cardId}`, {
+    return fetch(`${this._address}/cards/${cardId}/likes`, {
       method: this._like,
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
     }).then(this._checkResponse);
   }
 
   setAvatar(avatarLink) {
-    return fetch(`${this._address}/${this._groupId}/users/me/avatar`, {
+    return fetch(`${this._address}/users/me/avatar`, {
       method: "PATCH",
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -93,9 +91,7 @@ class Api {
 }
 
 const api = new Api({
-  address: "https://mesto.nomoreparties.co/v1",
-  token: "f8102ab5-70c3-4d68-8d03-549794a26a19",
-  groupId: "cohort-20",
+  address: "http://localhost:3005",
 });
 
 export default api;

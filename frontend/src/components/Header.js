@@ -11,6 +11,7 @@ function Header(props) {
   useEffect(() => {
     nextPageHandler();
     setUserEmail(props.userData.email);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPath]);
 
   function nextPageHandler() {

@@ -81,10 +81,10 @@ module.exports.createUser = (req, res, next) => {
 };
 
 module.exports.updateUser = (req, res, next) => {
-  const { name, about, avatar } = req.body;
+  const { name, about } = req.body;
   User.findByIdAndUpdate(
     req.user._id,
-    { name, about, avatar },
+    { name, about },
     { runValidators: true, new: true },
   )
     .orFail(new Error('NotValidId'))
@@ -113,12 +113,17 @@ module.exports.login = (req, res, next) => {
       const token = jwt.sign({ _id: user._id }, 'some-secret-key', {
         expiresIn: '7d',
       });
-      res
-        .cookie('jwt', token, {
-          maxAge: 3600000,
-          httpOnly: true,
-        })
-        .send({ _id: user._id });
+      res.status(200).send({ token });
+      // !True cookies auth, for best times...
+      // const token = jwt.sign({ _id: user._id }, 'some-secret-key', {
+      //   expiresIn: '7d',
+      // });
+      // res
+      //   .cookie('jwt', token, {
+      //     maxAge: 3600000,
+      //     httpOnly: true,
+      //   })
+      //   .send({ _id: user._id });
     })
     .catch(next);
 };

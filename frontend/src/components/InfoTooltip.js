@@ -15,7 +15,7 @@ function InfoTooltip(props) {
         <div className="popup__auth-image" style={{backgroundImage: `url(${background})`}}></div>
         <h3 className="popup__label popup__label_type_info">
           {props.isRegOk
-            ? "Вы успешно зарегестрировались!"
+            ? "Вы успешно зарегистрировались!"
             : "Что-то пошло не так! Попробуйте ещё раз."}
         </h3>
       </div>

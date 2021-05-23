@@ -36,6 +36,7 @@ function App() {
     if (loggedIn) {
       history.push("/");
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loggedIn]);
 
   function logout() {
@@ -89,7 +90,7 @@ function App() {
       let jwt = localStorage.getItem("jwt");
       authorization
         .getContent(jwt)
-        .then(({ data }) => {
+        .then((data) => {
           if (data._id) {
             setLoggedIn(true);
             setUserData({ id: data._id, email: data.email });
@@ -113,7 +114,7 @@ function App() {
       .catch((err) =>
         console.log(`При загрузке данных возникла ошибка: ${err.status}`)
       );
-  }, []);
+  }, [loggedIn]);
 
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
@@ -186,7 +187,7 @@ function App() {
     api
       .getCards()
       .then((data) => {
-        setCards(data);
+        setCards(data.reverse());
       })
       .catch((err) =>
         console.log(`При загрузке данных возникла ошибка: ${err.status}`)
@@ -195,10 +196,10 @@ function App() {
 
   useEffect(() => {
     cardsHandler();
-  }, []);
+  }, [loggedIn]);
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((item) => item._id === currentUser._id);
+    const isLiked = card.likes.some((item) => item === currentUser._id);
     api
       .likeCard(card._id, !isLiked)
       .then((newCard) => {

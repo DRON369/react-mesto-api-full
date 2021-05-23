@@ -3,15 +3,16 @@ const helmet = require('helmet'); // Защита приложения от web-
 const { connect } = require('mongoose');
 const { json, urlencoded } = require('body-parser');
 const { Joi, celebrate, errors } = require('celebrate');
+const cors = require('cors');
 const { login, createUser } = require('./controllers/users');
 const { emailValidator } = require('./middlewares/emailValidator');
 const auth = require('./middlewares/auth');
 const { checkEmailUnique } = require('./middlewares/checkEmailUnique');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000 } = process.env;
-
+const { PORT = 3005 } = process.env;
 const app = express();
+app.use(cors());
 
 app.use(helmet()); // Защита приложения от web-уязвимостей путём настройки заголовков http
 app.use(json());
