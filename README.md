@@ -6,3 +6,5 @@
 Для доступа к приложению - [mesto369.nomoredomains.icu](https://mesto369.nomoredomains.icu)
 
 Адрес для доступа к API - [api.mesto369.nomoredomains.monster](https://api.mesto369.nomoredomains.monster)
+
+Публичный ip адресс сервера - [84.252.140.199](84.252.140.199)
