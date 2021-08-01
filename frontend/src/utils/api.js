@@ -91,7 +91,7 @@ class Api {
 }
 
 const api = new Api({
-  address: "https://api.mesto369.nomoredomains.monster",
+  address: "https://api.mesto.dron369.ru",
 });
 
 export default api;

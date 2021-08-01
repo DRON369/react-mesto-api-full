@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.mesto369.nomoredomains.monster/";
+const BASE_URL = "https://api.mesto.dron369.ru/";
 
 export const register = ({ email, password }) => {
   console.log(`${BASE_URL}signup`);
