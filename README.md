@@ -3,8 +3,6 @@
 
 Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями. Бэкенд расположен в директории `backend/`, а фронтенд - в `frontend/`. 
   
-Для доступа к приложению - [mesto369.nomoredomains.icu](https://mesto369.nomoredomains.icu)
+Для доступа к приложению - [mesto.dron369.ru](https://mesto.dron369.ru)
 
-Адрес для доступа к API - [api.mesto369.nomoredomains.monster](https://api.mesto369.nomoredomains.monster)
-
-Публичный ip адресс сервера - [84.252.140.199](84.252.140.199)
+Адрес для доступа к API - [api.mesto.dron369.ru](https://api.mesto.dron369.ru)
