@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "e6cd1f56-ff6e-4ef8-b655-19aa4e9bde0c",
+		"name": "Mesto_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Wall-E\",\r\n    \"email\":\"robot@mail.com\",\r\n    \"password\":\"Qwerty!23\",\r\n    \"about\":\"Useful robot\",\r\n    \"avatar\":\"https://n1s1.hsmedia.ru/0f/33/8e/0f338e18696dc8a0fa6cab5ee97eaec2/1719x975_0xac120003_13982456861580288956.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.mesto.dron369.ru/signup",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mesto",
+						"dron369",
+						"ru"
+					],
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCards",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Test1\",\r\n    \"link\": \"https://region.center/source/TULA/2018/10/og_og_1508678481224540847.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.mesto.dron369.ru/cards",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mesto",
+						"dron369",
+						"ru"
+					],
+					"path": [
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.mesto.dron369.ru/cards",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mesto",
+						"dron369",
+						"ru"
+					],
+					"path": [
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCard",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.mesto.dron369.ru/cards/[enter card id]",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mesto",
+						"dron369",
+						"ru"
+					],
+					"path": [
+						"cards",
+						"[enter card id]"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Wall-E\",\r\n    \"about\":\"Useful robot. Cleaning Earth.\",\r\n    \"avatar\":\"https://n1s1.hsmedia.ru/0f/33/8e/0f338e18696dc8a0fa6cab5ee97eaec2/1719x975_0xac120003_13982456861580288956.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.mesto.dron369.ru/users/me",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mesto",
+						"dron369",
+						"ru"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUserAvatar",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"avatar\":\"https://n1s1.hsmedia.ru/0f/33/8e/0f338e18696dc8a0fa6cab5ee97eaec2/1719x975_0xac120003_13982456861580288956.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.mesto.dron369.ru/users/me/avatar",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mesto",
+						"dron369",
+						"ru"
+					],
+					"path": [
+						"users",
+						"me",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "likeCard",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://api.mesto.dron369.ru/[enter card id]",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mesto",
+						"dron369",
+						"ru"
+					],
+					"path": [
+						"[enter card id]"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unlikeCard",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.mesto.dron369.ru/[enter card id]/likes",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mesto",
+						"dron369",
+						"ru"
+					],
+					"path": [
+						"[enter card id]",
+						"likes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.mesto.dron369.ru/users/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mesto",
+						"dron369",
+						"ru"
+					],
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"robot@mail.com\",\r\n    \"password\":\"Qwerty!23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.mesto.dron369.ru/signin",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mesto",
+						"dron369",
+						"ru"
+					],
+					"path": [
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get current user info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.mesto.dron369.ru/users/me",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mesto",
+						"dron369",
+						"ru"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
