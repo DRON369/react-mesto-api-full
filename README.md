@@ -3,10 +3,10 @@
 ## Описание
 
 Данный проект создан в рамках обучения по специальности Web-разработчик в [Яндекс.Практикуме](https://praktikum.yandex.ru/).
-Репозиторий для приложения проекта `Mesto`, включающий [frontend](./frontend) и [backend](./backend) части приложения.
+Репозиторий для приложения проекта `Mesto`, включающий `frontend` и `backend` части приложения.
 Полее подбробное описание находится в readme.md соответствующих вложенных каталогов:
-- [frontend/readme.md](https://github.com/DRON369/react-mesto-api-full/frontend/readme.md)
-- [backend/readme.md](https://github.com/DRON369/react-mesto-api-full/backend/readme.md)
+- [frontend/readme.md](https://github.com/DRON369/react-mesto-api-full/blob/main/frontend/README.md)
+- [backend/readme.md](https://github.com/DRON369/react-mesto-api-full/blob/main/backend/README.md)
 
 ## Использованные технологии
 ![HTML5](https://img.shields.io/badge/-HTML5-0c0520?style=for-the-badge&logo=HTML5)
